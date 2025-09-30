@@ -1,14 +1,14 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - VivOwoH
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - VivOwoH/5G-E2E-with-DeepRx-and-WGAN-channel
+  - VivOwoH/AWS-Serverless-ImageCap
+  - VivOwoH/PaperMind-AI-Research-Assistant
+  - VivOwoH/Smart-Interior-Assistant
+  - VivOwoH/VVC-active-generation
+  - VivOwoH/vm_RISKXVII
+  - KimberlieFu/Rosas-Flamingo
+  - VivOwoH/Asteroids
