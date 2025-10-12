@@ -25,14 +25,14 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi, I'm Vivian, a Software Engineering student, with ~3 years of research experience in machine learning and 5G NR wireless communication systems.
+Hi, I'm Vivian, a Software Engineering graduate, with ~3 years of research experience in machine learning and 5G NR wireless communication systems.
 
-- R&D Intern (IoT cloud solution w/ GraphQL APIs) @ Audinate (2023-2024)
-- Engineering Research Scholarship @ University of Sydney (2023-2025)
+- R&D Intern (Typescript/GraphQL) @ Audinate (2023-2024)
+- Engineering Research Internship (5G NR) @ University of Sydney (2023-2025)
 - Coding Coach @ Skill Samurai (2023)
 - Web Dev Intern (HTML/CSS/MySQL) @ Caritech Software (2021)
 
-I love building things—from AI-powered web apps, IoT solutions, to cloud architectures. My research focuses on AI-aided wireless comm. I am always excited to pick up new tools that make development more efficient. When I'm not coding or pulling my hair over bugs, you might find me mentoring young programmers or tinkering with Game Dev.
+I love building things—from AI-powered web apps, IoT solutions, to cloud architectures. My research focuses on AI-aided wireless comm. I am always excited to brainstorm new AI solutions and pick up new tools that make development more efficient. When I'm not coding or pulling my hair over bugs, you might find me mentoring young programmers or tinkering with Game Dev tools.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
