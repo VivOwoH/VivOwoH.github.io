@@ -1,0 +1,152 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> NVIDIA Jetson AGX Orin with OAI 5G Stack (WIP:12-Oct-2025) | Wei (Vivian) Ha </title> <meta name="author" content="Wei (Vivian) Ha"> <meta name="description" content="Complete guide for configuring NVIDIA Jetson AGX Orin for 5G NR SA end-to-end setup with OpenAirInterface gNB"> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?b05f9a0b7405d7c8c89c7465593dea81"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?dadeb9c5d1fd12bc8d37475657446863"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?1fefb6021bf36010f25ea1cef24af84e"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?53a094b51ed1d1e025731eb00d240058" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8C%BA&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://vivowoh.github.io/blog/2025/nvidia-jetson-orin-5g/"> <script src="/assets/js/theme.js?f2531f05c6f8e1622518f4f5a1e385b1"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?46af317e693b09921dcb92261d123fbc" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Wei</span> (Vivian) Ha </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repo </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link"> <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">NVIDIA Jetson AGX Orin with OAI 5G Stack (WIP:12-Oct-2025)</h1> <p class="post-meta"> Created on October 01, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/nvidia"> <i class="fa-solid fa-hashtag fa-sm"></i> nvidia</a>   <a href="/blog/tag/jetson"> <i class="fa-solid fa-hashtag fa-sm"></i> jetson</a>   <a href="/blog/tag/5g"> <i class="fa-solid fa-hashtag fa-sm"></i> 5g</a>   <a href="/blog/tag/oai"> <i class="fa-solid fa-hashtag fa-sm"></i> oai</a>   <a href="/blog/tag/embedded-systems"> <i class="fa-solid fa-hashtag fa-sm"></i> embedded-systems</a>   ·   <a href="/blog/category/tutorials"> <i class="fa-solid fa-tag fa-sm"></i> tutorials</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>This guide covers the setup of NVIDIA Jetson AGX Orin with the OpenAirInterface (OAI) 5G stack, including custom kernel configuration with SCTP support.</p> <h2 id="overview">Overview</h2> <p>The setup includes:</p> <ul> <li>Force recovery mode configuration</li> <li>SCTP protocol support</li> <li>Docker container configuration</li> <li>5G NR SA end-to-end setup with OAI gNB</li> </ul> <h2 id="setup-process">Setup Process</h2> <h3 id="force-recovery-mode">Force Recovery Mode</h3> <p>To enter force recovery mode:</p> <ol> <li>Power off the device</li> <li>Press and hold the “force recovery” button while powering up</li> <li>Verify recovery mode status</li> </ol> <p>Check recovery status using the <a href="https://docs.nvidia.com/jetson/archives/r36.3/DeveloperGuide/IN/QuickStart.html#to-flash-the-jetson-developer-kit-operating-software" rel="external nofollow noopener" target="_blank">NVIDIA documentation</a>.</p> <p>On my device:</p> <ul> <li>Normal mode: Bus 002 Device 004: ID 0955:7020 NVIDIA Corp. L4T (Linux for Tegra) running on Tegra</li> <li>Recovery mode: ID changes to 7023</li> </ul> <h3 id="sctp-support">SCTP Support</h3> <p>Since <code class="language-plaintext highlighter-rouge">make prepare-system</code> likely asks for reboot before building/installing the kernel, it’s easy to miss the kernel steps. Run these scripts separately:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./scripts/configure-system.sh
+./scripts/build-custom-kernel.sh
+./scripts/install-custom-kernel.sh
+<span class="nb">sudo </span>reboot
+
+<span class="c"># Probe and load SCTP (including dependencies)</span>
+<span class="nb">sudo </span>modprobe sctp
+
+<span class="c"># Inspect SCTP module</span>
+modinfo sctp
+
+<span class="c"># Verify SCTP is available</span>
+<span class="nb">cat</span> /proc/net/protocols | <span class="nb">grep </span>SCTP
+</code></pre></div></div> <h3 id="docker-configuration">Docker Configuration</h3> <p>For Docker containers, modify <code class="language-plaintext highlighter-rouge">compose.yml</code> to use ARM64 compatible images:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">oaisoftwarealliance/[module]:[ARM64 version tags]</span>
+</code></pre></div></div> <p>This step is only necessary if Docker images aren’t found or the given version tags aren’t compatible with your OS (ARM64). Check <a href="https://hub.docker.com/u/oaisoftwarealliance" rel="external nofollow noopener" target="_blank">OAI DockerHub</a> for exact releases.</p> <p>If issues arise, review commands in <code class="language-plaintext highlighter-rouge">start_system.sh</code> for troubleshooting.</p> <h3 id="other-important-notes">Other Important Notes</h3> <p><strong>Multiple Jetson Devices:</strong></p> <ul> <li>Cannot flash multiple Jetsons simultaneously</li> <li>Avoid connecting one host PC with multiple Jetsons while flashing</li> </ul> <p><strong>Browser Issues on Jetson:</strong> If the browser doesn’t open, it’s likely a snapd issue:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt autoremove <span class="nt">--purge</span> snapd
+<span class="nb">sudo </span>apt <span class="nb">install </span>snapd
+<span class="nb">sudo </span>systemctl start snapd
+<span class="nb">sudo </span>systemctl <span class="nb">enable </span>snapd
+</code></pre></div></div> <p><strong>Useful Docker Commands:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps <span class="nt">-a</span>                          <span class="c"># Show all running containers</span>
+docker compose down                   <span class="c"># Shut containers down</span>
+docker compose rmi <span class="o">[</span>Image]           <span class="c"># Clean up cached image</span>
+docker compose restart <span class="o">[</span>Image]       <span class="c"># Restart an unhealthy container</span>
+</code></pre></div></div> <h2 id="5g-nr-sa-end-to-end-setup-with-oai-gnb">5G NR SA End-to-End Setup with OAI gNB</h2> <p>Following the <a href="https://gitlab.eurecom.fr/oai/openairinterface5g/-/blob/develop/doc/NR_SA_Tutorial_OAI_nrUE.md#3-oai-gnb-and-oai-nrue" rel="external nofollow noopener" target="_blank">OAI tutorial</a>, the openairinterface5g resources should already be in sionna-rk.</p> <p>Modify <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> as needed and check OAI DockerHub for releases.</p> <h3 id="installation-steps">Installation Steps</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/openairinterface5g
+git checkout develop
+
+<span class="c"># Install OAI dependencies</span>
+<span class="nb">cd</span> ~/openairinterface5g/cmake_targets
+./build_oai <span class="nt">-I</span>
+
+<span class="c"># Install nrscope dependencies</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> libforms-dev libforms-bin
+
+<span class="c"># Build OAI gNB</span>
+<span class="nb">cd</span> ~/openairinterface5g/cmake_targets
+./build_oai <span class="nt">-w</span> USRP <span class="nt">--ninja</span> <span class="nt">--nrUE</span> <span class="nt">--gNB</span> <span class="nt">--build-lib</span> <span class="s2">"nrscope"</span> <span class="nt">-C</span>
+
+<span class="c"># Start core network containers</span>
+<span class="nb">cd</span> ~/openairinterface5g/doc/tutorial_resources/oai-cn5g
+docker compose up <span class="nt">-d</span>
+
+<span class="c"># Check container health</span>
+docker ps <span class="nt">-a</span>
+</code></pre></div></div> <p>The core network should be running at this point.</p> <h2 id="custom-kernel-configuration-sctp-support---deprecated">Custom Kernel Configuration (SCTP Support) - deprecated</h2> <p><strong>Note:</strong> Refer to the <a href="https://nvlabs.github.io/sionna/rk/setup/kernel.html#kernel" rel="external nofollow noopener" target="_blank">Sionna RK kernel setup documentation</a> for the most current instructions.</p> <h3 id="background">Background</h3> <p>The default Jetson kernel (NVIDIA L4T Release 36.3.0, based on JetPack 6.0) doesn’t have SCTP (port 38412) enabled, which is required for the N2 interface between gNB and AMF:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[oai-gnb] ←------ N2 (SCTP) ------→ [oai-amf]
+192.168.71.140                     192.168.71.132
+</code></pre></div></div> <p>Without SCTP support, you’ll see errors like:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[2025-10-07 03:38:16.117] [sctp] [error] Socket: Protocol not supported:93
+[2025-10-07 03:38:16.117] [ngap] [info] Set N2 AMF IPv4 Addr 192.168.71.132, port 38412
+</code></pre></div></div> <h3 id="checking-sctp-support">Checking SCTP Support</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check if SCTP is compiled (m=module, y=built-in)</span>
+zcat /proc/config.gz | <span class="nb">grep </span>SCTP
+
+<span class="c"># If it exists as module and disabled, load it</span>
+<span class="nb">sudo </span>modprobe sctp
+
+<span class="c"># Verify it's loaded</span>
+lsmod | <span class="nb">grep </span>sctp
+</code></pre></div></div> <h3 id="building-sctp-into-kernel">Building SCTP Into Kernel</h3> <p><strong>Important:</strong> Do this before flashing for the first time!</p> <h4 id="install-build-tools">Install Build Tools</h4> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\</span>
+  flex <span class="se">\</span>
+  bison <span class="se">\</span>
+  build-essential <span class="se">\</span>
+  bc <span class="se">\</span>
+  libssl-dev <span class="se">\</span>
+  libncurses-dev <span class="se">\</span>
+  device-tree-compiler <span class="se">\</span>
+  python3 <span class="se">\</span>
+  git <span class="se">\</span>
+  wget <span class="se">\</span>
+  curl <span class="se">\</span>
+  libelf-dev
+
+<span class="c"># For cross-compilation</span>
+<span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> gcc-aarch64-linux-gnu
+</code></pre></div></div> <h4 id="prepare-kernel-source">Prepare Kernel Source</h4> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create working directory</span>
+<span class="nb">mkdir </span>jetson-flash <span class="o">&amp;&amp;</span> <span class="nb">cd </span>jetson-flash
+
+<span class="c"># Download L4T packages</span>
+wget https://developer.nvidia.com/downloads/embedded/l4t/r36_release_v3.0/release/jetson_linux_r36.3.0_aarch64.tbz2
+wget https://developer.nvidia.com/downloads/embedded/l4t/r36_release_v3.0/release/tegra_linux_sample-root-filesystem_r36.3.0_aarch64.tbz2
+
+<span class="c"># Extract packages</span>
+<span class="nb">tar </span>xf jetson_linux_r36.3.0_aarch64.tbz2
+<span class="nb">sudo tar </span>xpf tegra_linux_sample-root-filesystem_r36.3.0_aarch64.tbz2 <span class="nt">-C</span> Linux_for_Tegra/rootfs/
+
+<span class="nb">cd </span>Linux_for_Tegra/
+
+<span class="c"># Download kernel source</span>
+./source_sync.sh <span class="nt">-k</span> <span class="nt">-t</span> jetson_36.3
+<span class="nb">cd source</span>/kernel/kernel-jammy-src/
+</code></pre></div></div> <h4 id="configure-and-build-kernel">Configure and Build Kernel</h4> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set environment</span>
+<span class="nb">export </span><span class="nv">CROSS_COMPILE</span><span class="o">=</span>aarch64-linux-gnu-
+<span class="nb">export </span><span class="nv">ARCH</span><span class="o">=</span>arm64
+<span class="nb">export </span><span class="nv">TEGRA_KERNEL_OUT</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/kernel_out
+<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$TEGRA_KERNEL_OUT</span>
+
+<span class="c"># Load default config</span>
+make <span class="nv">ARCH</span><span class="o">=</span>arm64 <span class="nv">CROSS_COMPILE</span><span class="o">=</span>aarch64-linux-gnu- <span class="nv">O</span><span class="o">=</span><span class="nv">$TEGRA_KERNEL_OUT</span> defconfig
+
+<span class="c"># Open menuconfig to enable SCTP</span>
+make <span class="nv">ARCH</span><span class="o">=</span>arm64 <span class="nv">CROSS_COMPILE</span><span class="o">=</span>aarch64-linux-gnu- <span class="nv">O</span><span class="o">=</span><span class="nv">$TEGRA_KERNEL_OUT</span> menuconfig
+</code></pre></div></div> <p>In menuconfig, navigate to:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Networking support → Networking options → &lt;M&gt; The SCTP Protocol
+</code></pre></div></div> <p>Build the kernel:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make <span class="nv">ARCH</span><span class="o">=</span>arm64 <span class="nv">CROSS_COMPILE</span><span class="o">=</span>aarch64-linux-gnu- <span class="nv">O</span><span class="o">=</span><span class="nv">$TEGRA_KERNEL_OUT</span> <span class="nt">-j</span><span class="si">$(</span><span class="nb">nproc</span><span class="si">)</span>
+
+<span class="c"># Or use NVIDIA's build script</span>
+<span class="nb">cd </span>Linux_for_Tegra/
+./source_sync.sh <span class="nt">-k</span> <span class="nt">-t</span> jetson_36.3
+<span class="nb">cd </span>sources/kernel
+./kernel_build.sh
+</code></pre></div></div> <p>The kernel image will be at <code class="language-plaintext highlighter-rouge">kernel_out/arch/arm64/boot/Image</code>.</p> <h4 id="flash-the-kernel">Flash the Kernel</h4> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>Linux_for_Tegra/
+
+<span class="c"># Optional: Backup original kernel</span>
+<span class="nb">sudo cp </span>kernel/Image kernel/Image.backup
+
+<span class="c"># Replace kernel image</span>
+<span class="nb">sudo cp source</span>/kernel/kernel-jammy-src/kernel_out/arch/arm64/boot/Image kernel/Image
+<span class="nb">sudo cp source</span>/kernel/kernel-jammy-src/kernel_out/arch/arm64/boot/Image.gz kernel/Image.gz
+
+<span class="c"># Apply NVIDIA binaries</span>
+<span class="nb">sudo</span> ./apply_binaries.sh
+
+<span class="c"># Check module directories (should see 5.15.136-tegra)</span>
+<span class="nb">ls</span> <span class="nt">-la</span> rootfs/usr/lib/modules/
+
+<span class="c"># Install custom kernel modules</span>
+<span class="nb">sudo </span>make <span class="nt">-C</span> <span class="nb">source</span>/kernel/kernel-jammy-src/ <span class="nv">ARCH</span><span class="o">=</span>arm64 <span class="se">\</span>
+  <span class="nv">CROSS_COMPILE</span><span class="o">=</span>aarch64-linux-gnu- <span class="nv">O</span><span class="o">=</span>kernel_out <span class="se">\</span>
+  <span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/rootfs/ modules_install
+
+<span class="c"># Verify new modules (should see 5.15.136+ now)</span>
+<span class="nb">ls</span> <span class="nt">-la</span> rootfs/usr/lib/modules/
+
+<span class="c"># Reapply binaries</span>
+<span class="nb">sudo</span> ./apply_binaries.sh
+
+<span class="c"># Flash to NVMe</span>
+<span class="nb">sudo</span> ./tools/kernel_flash/l4t_initrd_flash.sh <span class="nt">--external-device</span> nvme0n1p1 <span class="se">\</span>
+  <span class="nt">-c</span> tools/kernel_flash/flash_l4t_t234_nvme.xml <span class="se">\</span>
+  <span class="nt">--showlogs</span> <span class="nt">--network</span> usb0 jetson-agx-orin-devkit external
+</code></pre></div></div> <h3 id="workaround-for-missing-subdirectories">Workaround for Missing Subdirectories</h3> <p>During flashing, some subdirectories may be missing in the customized kernel modules. Here’s a workaround:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Navigate to modules directory</span>
+<span class="nb">cd </span>rootfs/usr/lib/modules/
+
+<span class="c"># Check what exists in tegra kernel</span>
+<span class="nb">ls</span> <span class="nt">-la</span> 5.15.136-tegra/updates/
+
+<span class="c"># Copy the entire updates directory</span>
+<span class="nb">sudo cp</span> <span class="nt">-r</span> 5.15.136-tegra/updates/ 5.15.136+/ 2&gt;/dev/null <span class="o">||</span> <span class="nb">true</span>
+
+<span class="c"># Verify it exists</span>
+<span class="nb">ls</span> <span class="nt">-la</span> 5.15.136+/updates/drivers/spi/
+</code></pre></div></div> <hr> <p>After completing these steps, your Jetson AGX Orin should be ready to run the OAI 5G stack with full SCTP support.</p> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/tensorflow-ubuntu/">TensorFlow-GPU on Ubuntu with CUDA 11.8</a> </li> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2025 Wei (Vivian) Ha. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?c999e8c5281874b7534e3352f835d4c3" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?b977fe0c21b2118ed853308b1b923969"></script> <script src="/assets/js/no_defer.js?699fa7cbe3b29f831db7d5250ba3203a"></script> <script defer src="/assets/js/common.js?d3a25b46bbd2e0a751a27b173abc6e5f"></script> <script defer src="/assets/js/copy_code.js?fff63901a03063094790ffbfd4bc0cb4" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?25eff8ff4144a010e4ad7b31403102cf"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?04761245f225e3ad9e5e3f875d4e1074"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?b78cb42895d74e4fd6de6f633edcf181" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/js/search/ninja-keys.min.js?230637657ac0b42e92d76e2b4c1b4764"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/js/search-setup.js?ade73d6d60912d119f9c9347bc176630"></script> <script src="/assets/js/search-data.js"></script> <script src="/assets/js/shortcut-key.js?f74bfa9a88ab862fb9df1c46146b7b7d"></script> </body> </html>
