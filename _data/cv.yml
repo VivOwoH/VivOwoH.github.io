@@ -43,19 +43,19 @@
 - title: Key Projects
   type: time_table
   contents:
-    - title: <a href="https://github.com/yourusername">5G End-to-End Wireless Communication System with CWGAN-based Channel</a>
+    - title: <a href="https://github.com/VivOwoH/5G-E2E-with-DeepRx-and-WGAN-channel">5G End-to-End Wireless Communication System with CWGAN-based Channel</a>
       year: 2024-2025
       description: 
         - Developed end-to-end learning system with neural mapper and deep CNN receiver using TensorFlow and NVIDIA Sionna
         - Achieved equivalent transmission efficiency as a known wireless channel with a GAN-based channel surrogate
     
-    - title: <a href="https://github.com/yourusername">Atlassian Rovo GenAI Jira Assistant</a>
+    - title: <a href="https://github.com/KimberlieFu/Rosas-Flamingo">Atlassian Rovo GenAI Jira Assistant</a>
       year: 2024
       description: 
         - Developed a Rovo Agent application that achieved sub-3s response for intelligent meeting notes preparation
         - Implemented automated prompt engineering using JavaScript, Atlassian Forge, and Rovo AI
     
-    - title: <a href="https://github.com/yourusername">AWS Serverless Image App</a>
+    - title: <a href="https://github.com/VivOwoH/AWS-Serverless-ImageCap">AWS Serverless Image App</a>
       year: 2024
       description:
         - Designed event-driven serverless architecture with S3-triggered automated image analysis and caption generation

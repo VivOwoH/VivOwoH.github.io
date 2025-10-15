@@ -5,7 +5,7 @@
     "image": "",
     "email": "vivrabi@gmail.com",
     "phone": "+61 422-157-529",
-    "url": "https://yourusername.github.io/",
+    "url": "https://github.com/VivOwoH",
     "summary": "AI/ML master by research student with hands-on experience in deep learning, neural networks, and intelligent systems development. Proven expertise in TensorFlow, MATLAB, and end-to-end machine learning with a strong foundation in software design, development and implementation.",
     "location": {
       "address": "",
@@ -18,20 +18,19 @@
       {
         "network": "GitHub",
         "username": "yourusername",
-        "url": "https://github.com/yourusername"
+        "url": "https://github.com/VivOwoH"
       },
       {
         "network": "LinkedIn",
         "username": "vivian-ha",
-        "url": "https://linkedin.com/in/vivian-ha"
+        "url": "https://www.linkedin.com/in/vivian-ha-a6b6a0207/"
       }
     ]
   },
   "work": [
     {
       "name": "The University of Sydney",
-      "position": "Engineering Research Scholarship",
-      "url": "https://www.sydney.edu.au/",
+      "position": "Engineering Research Intern Scholarship",
       "startDate": "2023-12-01",
       "endDate": "2025-02-28",
       "summary": "Research on AI-assisted wireless communication systems using end-to-end supervised learning and neural networks.",
@@ -45,7 +44,6 @@
     {
       "name": "Audinate",
       "position": "R&D Intern",
-      "url": "https://www.audinate.com/",
       "startDate": "2023-12-01",
       "endDate": "2024-02-28",
       "summary": "Contributed to commercial IoT cloud solution architecture and development for Dante Cloud platform.",
@@ -57,7 +55,6 @@
     {
       "name": "Skill Samurai",
       "position": "Coding Coach",
-      "url": "https://www.skillsamurai.com/",
       "startDate": "2023-01-01",
       "endDate": "2023-08-31",
       "summary": "Mentored children in programming fundamentals and helped develop learning plans.",
@@ -69,7 +66,6 @@
     {
       "name": "Caritech Software Malaysia",
       "position": "Web Developer Student Intern",
-      "url": "",
       "startDate": "2021-07-01",
       "endDate": "2021-08-31",
       "summary": "Performed front-end testing and database maintenance for client websites.",
@@ -84,10 +80,9 @@
     {
       "institution": "The University of Sydney",
       "location": "Sydney, Australia",
-      "url": "https://www.sydney.edu.au/",
       "area": "Engineering",
       "studyType": "Master of Philosophy",
-      "startDate": "2025-01-01",
+      "startDate": "2025-10-01",
       "endDate": "",
       "score": "",
       "courses": [
@@ -97,12 +92,11 @@
     {
       "institution": "The University of Sydney",
       "location": "Sydney, Australia",
-      "url": "https://www.sydney.edu.au/",
       "area": "Software Engineering",
       "studyType": "Bachelor of Engineering (First Class Honors)",
-      "startDate": "2021-01-01",
-      "endDate": "2025-01-01",
-      "score": "First Class Honors",
+      "startDate": "2021-08-01",
+      "endDate": "2025-07-28",
+      "score": "First Class Honors (WAM: 81.19)",
       "courses": []
     }
   ],
@@ -239,9 +233,9 @@
         "Achieved equivalent transmission efficiency as a known wireless channel with a GAN-based channel surrogate",
         "Technologies: TensorFlow, NVIDIA Sionna, Python"
       ],
-      "startDate": "2024-01-01",
+      "startDate": "",
       "endDate": "",
-      "url": "https://github.com/yourusername/5g-wireless-system"
+      "url": "https://github.com/VivOwoH/5G-E2E-with-DeepRx-and-WGAN-channel"
     },
     {
       "name": "Atlassian Rovo GenAI Jira Assistant",
@@ -251,9 +245,9 @@
         "Implemented automated prompt engineering",
         "Technologies: JavaScript, Atlassian Forge, Atlassian Rovo AI, REST"
       ],
-      "startDate": "2024-01-01",
-      "endDate": "2024-01-01",
-      "url": "https://github.com/yourusername/rovo-jira-assistant"
+      "startDate": "",
+      "endDate": "",
+      "url": "https://github.com/KimberlieFu/Rosas-Flamingo"
     },
     {
       "name": "AWS Serverless Image App",
@@ -264,9 +258,9 @@
         "Implemented three-tier security model with auto-scaling EC2 instances and multi-AZ deployment",
         "Technologies: AWS Lambda, S3, EC2, RDS, Python Flask"
       ],
-      "startDate": "2024-01-01",
-      "endDate": "2024-01-01",
-      "url": "https://github.com/yourusername/aws-serverless-image-app"
+      "startDate": "",
+      "endDate": "",
+      "url": "https://github.com/VivOwoH/AWS-Serverless-ImageCap"
     }
   ]
 }
