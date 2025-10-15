@@ -30,26 +30,26 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-nvidia-jetson-agx-orin-with-oai-5g-stack-wip-12-oct-2025",
+        },{id: "post-nvidia-jetson-agx-orin-with-oai-5g-stack",
         
-          title: "NVIDIA Jetson AGX Orin with OAI 5G Stack (WIP:12-Oct-2025)",
+          title: 'NVIDIA Jetson AGX Orin with OAI 5G Stack <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
         
         description: "Complete guide for configuring NVIDIA Jetson AGX Orin for 5G NR SA end-to-end setup with OpenAirInterface gNB",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/nvidia-jetson-orin-5g/";
+            window.open("https://gist.github.com/VivOwoH/c137b8201a548f80e20d76a68edf4344", "_blank");
           
         },
       },{id: "post-tensorflow-gpu-on-ubuntu-with-cuda-11-8",
         
-          title: "TensorFlow-GPU on Ubuntu with CUDA 11.8",
+          title: 'TensorFlow-GPU on Ubuntu with CUDA 11.8 <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
         
         description: "A comprehensive guide for installing TensorFlow with GPU support on WSL2 and Ubuntu 22.04, including CUDA 11.8 and cuDNN 8 configuration",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/tensorflow-ubuntu/";
+            window.open("https://gist.github.com/VivOwoH/e3d3ab76be5b2eb9a6ebdb7b4ba84da2", "_blank");
           
         },
       },{id: "books-the-godfather",
