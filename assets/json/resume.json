@@ -233,7 +233,7 @@
         "Achieved equivalent transmission efficiency as a known wireless channel with a GAN-based channel surrogate",
         "Technologies: TensorFlow, NVIDIA Sionna, Python"
       ],
-      "startDate": "",
+      "startDate": "2023-12",
       "endDate": "",
       "url": "https://github.com/VivOwoH/5G-E2E-with-DeepRx-and-WGAN-channel"
     },
@@ -245,8 +245,8 @@
         "Implemented automated prompt engineering",
         "Technologies: JavaScript, Atlassian Forge, Atlassian Rovo AI, REST"
       ],
-      "startDate": "",
-      "endDate": "",
+      "startDate": "2025-02",
+      "endDate": "2025-02",
       "url": "https://github.com/KimberlieFu/Rosas-Flamingo"
     },
     {
@@ -258,8 +258,8 @@
         "Implemented three-tier security model with auto-scaling EC2 instances and multi-AZ deployment",
         "Technologies: AWS Lambda, S3, EC2, RDS, Python Flask"
       ],
-      "startDate": "",
-      "endDate": "",
+      "startDate": "2025-02",
+      "endDate": "2025-06",
       "url": "https://github.com/VivOwoH/AWS-Serverless-ImageCap"
     }
   ]

@@ -2,10 +2,10 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
-nav: false
+description: A collection of projects that aren't repo-ready — yet (or ever, for various reasons).
+nav: true
 nav_order: 3
-display_categories: [work, fun]
+display_categories: [research, work]
 horizontal: false
 ---
 

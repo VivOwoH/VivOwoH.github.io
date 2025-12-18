@@ -86,7 +86,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Blogs # blog_name will be displayed in your blog page
-blog_description: An archive of architecture documents or setup scripts for my research.
+blog_description: An archive of architecture documents or setup scripts.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
