@@ -90,6 +90,11 @@ ninja.data = [{
           description: "Digital twin system for offline device management in distributed networks",
           section: "Projects",handler: () => {
               window.location.href = "/projects/dante_project/";
+            },},{id: "projects-alcohol-storage-furniture-design",
+          title: 'Alcohol Storage Furniture Design',
+          description: "Design Technology project featuring CAD modeling, iterative design, and physical prototyping",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/dt_project/";
             },},{
         id: 'social-email',
         title: 'email',
