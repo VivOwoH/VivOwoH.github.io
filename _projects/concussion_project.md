@@ -4,7 +4,7 @@ title: Concussion Action Plan App
 description: Cross-platform mobile healthcare app with offline-first architecture
 img: assets/img/project/expo_thumbnail.png
 importance: 3
-category: work
+category: project
 related_publications: false
 ---
 

@@ -14,7 +14,7 @@ This research developed an end-to-end (E2E) learning system for wireless communi
 
 *The code repository is private due to institutional rules. Drop me an email if you want source code access.*
 
-**Technologies**: Neural Networks, GANs, OFDM, 5G NR Wireless, 3GPP, TensorFlow  
+**Tech Stack**: Neural Networks, GANs, OFDM, 5G NR Wireless, 3GPP, TensorFlow  
 
 ---
 

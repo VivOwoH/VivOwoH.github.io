@@ -5,7 +5,7 @@ permalink: /projects/
 description: A collection of projects that aren't repo-ready — yet (or ever, for various reasons).
 nav: true
 nav_order: 3
-display_categories: [research, work]
+display_categories: [project, research]
 horizontal: false
 ---
 

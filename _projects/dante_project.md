@@ -4,16 +4,15 @@ title: Networked Device Management w/ Digital Twin
 description: Digital twin system for offline device management in distributed networks
 img: assets/img/project/digital_twin_thumbnail.jpg
 importance: 2
-category: work
+category: project
 related_publications: false
 ---
 
 ## Overview
 
 This project explored configuration and management of networked audio systems via GraphQL API. The system implemented digital twin and digital shadow concepts to enable two key features: configuring offline devices with pending changes, and restoring devices to previous configuration states.
-
-**Timeline**: February 2024  
-**Technologies**: GraphQL API, TypeScript, Digital Twin Architecture
+  
+**Tech Stack**: GraphQL API, TypeScript, Digital Twin Architecture
 
 ---
 
