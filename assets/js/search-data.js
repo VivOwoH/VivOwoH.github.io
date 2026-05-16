@@ -114,7 +114,7 @@ ninja.data = [{
         title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("https://www.linkedin.com/in/vivian-ha-a6b6a0207", "_blank");
+          window.open("https://www.linkedin.com/in/wei-ha-a6b6a0207", "_blank");
         },
       },{
         id: 'social-rss',
