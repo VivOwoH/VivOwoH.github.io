@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-nvidia-jetson-agx-orin-with-oai-5g-stack",
+        },{id: "post-jetson-1-gnb-and-jetson-2-ue-oai-data-capture-plugin",
+        
+          title: 'Jetson#1 (gNB) and Jetson#2 (UE) OAI data capture plugin <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "Transmitted and received signal capture hook for channel surrogate training, using two NVIDIA Jetson AGX Orin for 5G NR SA end-to-end setup with OpenAirInterface",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://gist.github.com/VivOwoH/89e8d874e10eab93deaf683afb807219", "_blank");
+          
+        },
+      },{id: "post-nvidia-jetson-agx-orin-with-oai-5g-stack",
         
           title: 'NVIDIA Jetson AGX Orin with OAI 5G Stack <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
         
